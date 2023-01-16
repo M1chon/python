@@ -29,3 +29,19 @@ while True:
                 print ()
                 print ("totaalprijs is: ",totaalprijs)
                 continue
+
+
+
+
+import csv
+klanten = []
+
+with open('RDE.csv', r) as file:
+    csvreader = csv.reader(file)
+    row1 = next(csvreader)
+    for row in csvreader:
+        klanten.append(row)
+       
+for i in klanten:
+    if i[2] == 'KIA' and i[3] == 'PICANTO': 
+      print(i[0],i[1])
