@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Vraag aan de gebruiker hoeveel getallen ingevoerd moeten worden
 echo "Hoeveel getallen wil je ingeven?"
 read aantal_getallen
 
-# Initialiseer een array om de ingevoerde getallen op te slaan
 declare -a getallen
 
-# Vraag aan de gebruiker om de getallen in te voeren
 for (( i=0; i<$aantal_getallen; i++ ))
 do
     echo "Voer getal $((i+1)) in:"
@@ -15,15 +12,12 @@ do
     getallen[$i]=$getal
 done
 
-# Bepaal de totale som van de getallen
 som=0
 for getal in "${getallen[@]}"
 do
     som=$(echo "$som + $getal" | bc)
 done
 
-# Bepaal het gemiddelde en rond af op twee decimalen
 gemiddelde=$(echo "scale=2; $som / $aantal_getallen" | bc)
 
-# Geef het gemiddelde weer aan de gebruiker
 echo "Het gemiddelde van de ingevoerde getallen is: $gemiddelde"
